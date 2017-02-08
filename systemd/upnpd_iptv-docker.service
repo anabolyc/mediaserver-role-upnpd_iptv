@@ -1,0 +1,18 @@
+[Unit]
+Description=dockerized upnpd_iptv
+Requires=docker.service
+After=docker.service
+
+[Service]
+ExecStartPre=-/usr/bin/docker rm -f upnpd_iptv-instance
+ExecStartPre=-/usr/bin/docker pull andreymalyshenko/mediaserver-role-upnpd_iptv:armhf
+ExecStart=/usr/bin/docker run --name upnpd_iptv-instance --net=host --env M3U_URL=http://localhost:8000/torrent-telik/list.m3u andreymalyshenko/mediaserver-role-upnpd_iptv:armhf
+ExecStartPost=/bin/sh -c 'while ! docker ps | grep upnpd_iptv-instance ; do sleep 1; done'
+ExecStop=/usr/bin/docker rm -f upnpd_iptv-instance
+TimeoutSec=0
+RemainAfterExit=no
+Restart=Always
+
+[Install]
+WantedBy=multi-user.target
+
