@@ -13,10 +13,10 @@ RUN apt-get remove git build-essential uuid-dev psmisc -y && apt-get autoremove 
 RUN rm -rf /var/lib/apt/lists/*
 
 ENV M3U_URL http://example.com/list.m3u
+ENV FRONTEND_NAME IPTV
 ENV FRONTEND_PORT 4044
-ENV FORNTEND_NAME IPTV
 
 COPY ./start.sh /usr/sbin/start.sh
 
-EXPOSE 4044
+EXPOSE 4040-4050
 CMD start.sh
