@@ -1,7 +1,7 @@
 [Unit]
 Description=dockerized upnpd_iptv torrent-telik
-Requires=docker.service
-After=docker.service
+Requires=docker.service aceproxy.service
+After=docker.service aceproxy.service
 
 [Service]
 ExecStartPre=-/usr/bin/docker rm -f upnpd_iptv_1-instance
