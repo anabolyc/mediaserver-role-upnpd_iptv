@@ -12,7 +12,7 @@ RUN mkdir /xupnpd/src/playlists -p
 RUN apt-get remove git build-essential uuid-dev psmisc -y && apt-get autoremove -y
 RUN rm -rf /var/lib/apt/lists/*
 
-ENV M3U_URL http://example.com/list.m3u
+# ENV M3U_URL http://example.com/list.m3u
 ENV FRONTEND_NAME IPTV
 ENV FRONTEND_PORT 4044
 ENV BACKEND_GUID 60bd2fb3-dabe-cb14-c766-0e319b54c29a

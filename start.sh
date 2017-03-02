@@ -16,8 +16,9 @@ echo "Starting data update from $M3U_URL every 300 seconds"
 while true
 do
 	sleep 300
-	timeout -sHUP 1m wget "$M3U_URL" -O /xupnpd/src/playlists/list.m3u
+	timeout -sHUP 1m wget http://localhost:8000/torrent-telik/list.m3u -O /xupnpd/src/playlists/tt.m3u
+	timeout -sHUP 1m wget http://localhost:8000/allfon/list.m3u -O /xupnpd/src/playlists/ALLFON.m3u
 done &
 
-wget "$M3U_URL" -O /xupnpd/src/playlists/list.m3u && /xupnpd/src/xupnpd
+wget http://localhost:8000/torrent-telik/list.m3u -O /xupnpd/src/playlists/tt.m3u && wget http://localhost:8000/allfon/list.m3u -O /xupnpd/src/playlists/ALLFON.m3u && /xupnpd/src/xupnpd
 
