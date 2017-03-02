@@ -6,7 +6,7 @@ After=docker.service aceproxy.service
 [Service]
 ExecStartPre=-/usr/bin/docker rm -f upnpd_iptv_1-instance
 ExecStartPre=-/usr/bin/docker pull andreymalyshenko/mediaserver-role-upnpd_iptv:armhf
-ExecStart=/usr/bin/docker run --name upnpd_iptv_1-instance --net=host --env M3U_URL=http://localhost:8000/torrent-telik/list.m3u --env FRONTEND_PORT=4044 --env FRONTEND_NAME=IPTV-TORRENT-T andreymalyshenko/mediaserver-role-upnpd_iptv:armhf
+ExecStart=/usr/bin/docker run --name upnpd_iptv_1-instance --net=host --env M3U_URL=http://localhost:8000/torrent-telik/list.m3u --env FRONTEND_PORT=4044 --env FRONTEND_NAME=IPTV-TORRENT-T --env BACKEND_GUID=61cfd247-be43-4736-8344-bd0fa2100f8e andreymalyshenko/mediaserver-role-upnpd_iptv:armhf
 ExecStartPost=/bin/sh -c 'while ! docker ps | grep upnpd_iptv_1-instance ; do sleep 1; done'
 ExecStop=/usr/bin/docker rm -f upnpd_iptv_1-instance
 TimeoutSec=0

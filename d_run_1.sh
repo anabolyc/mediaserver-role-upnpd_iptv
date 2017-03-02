@@ -1,0 +1,1 @@
+docker run --rm -ti --net=host --env M3U_URL=http://192.168.1.42:8000/torrent-telik/list.m3u --env FRONTEND_PORT=4044 --env FRONTEND_NAME=IPTV-TORRENT-T --env BACKEND_GUID=61cfd247-be43-4736-8344-bd0fa2100f8e $(cat tag)

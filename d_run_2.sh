@@ -1,0 +1,1 @@
+docker run --rm -ti --net=host --env M3U_URL=http://192.168.1.42:8000/allfon/list.m3u --env FRONTEND_PORT=4042 --env FRONTEND_NAME=IPTV-ALLFON --env BACKEND_GUID=b48d1282-b6ab-4280-a395-03d2298e7bf3 $(cat tag)
