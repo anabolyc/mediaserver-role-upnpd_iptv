@@ -20,5 +20,5 @@ do
 	timeout -sHUP 1m wget http://localhost:8000/allfon/list.m3u -O /xupnpd/src/playlists/ALLFON.m3u
 done &
 
-wget http://localhost:8000/torrent-telik/list.m3u -O /xupnpd/src/playlists/TORRENT-TELIK.m3u && wget http://localhost:8000/allfon/list.m3u -O /xupnpd/src/playlists/ALLFON.m3u && /xupnpd/src/xupnpd
+wget http://localhost:8000/torrent-telik/list.m3u -O /xupnpd/src/playlists/TORRENT-TELIK.m3u ; wget http://localhost:8000/allfon/list.m3u -O /xupnpd/src/playlists/ALLFON.m3u ; /xupnpd/src/xupnpd
 
