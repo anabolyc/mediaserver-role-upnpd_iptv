@@ -4,7 +4,11 @@
 
 if [ ! -f /xupnpd/src/.xupnpd.lua.patched ]; then
 	echo "Patching configuration file"
-	sed -e "s/UPnP-IPTV/${FRONTEND_NAME}/" -e "s/4044/${FRONTEND_PORT}/" -e "s/60bd2fb3-dabe-cb14-c766-0e319b54c29a/${BACKEND_GUID}/" -i /xupnpd/src/xupnpd.lua 
+	sed -e "s/UPnP-IPTV/${FRONTEND_NAME}/" \
+            -e "s/4044/${FRONTEND_PORT}/" \
+            -e "s/60bd2fb3-dabe-cb14-c766-0e319b54c29a/${BACKEND_GUID}/" \
+            -e "s/cfg.debug=1/cfg.debug=${DEBUG_LEVEL}/" \
+            -i /xupnpd/src/xupnpd.lua 
 	sed -e "s/xupnpd/${BACKEND_GUID}/" -i /xupnpd/src/www/dev.xml
 	touch /xupnpd/src/.xupnpd.lua.patched
 else
